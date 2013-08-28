@@ -1,0 +1,17 @@
+<h1>Account: <%= @account.name %></h1>
+
+<h2>Contacts</h2>
+<table border="1">
+    <tr>
+        <th>id</th><th>Name</th><th>Email</th><th>Phone</th>
+    </tr>
+    <% @contacts.each do |contact| %>
+      <% next if contact.nil? %>
+      <tr>
+          <td><%= contact.id %></td>
+          <td><%= contact.firstname %> <%= contact.lastname %></td>
+          <td><%= contact.email %></td>
+          <td><%= contact.phone %></td>
+      </tr>
+    <% end %>
+</table>

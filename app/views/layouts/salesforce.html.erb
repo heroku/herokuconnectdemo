@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Skylabdemo</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+
+    <style>
+        .tab {
+            padding:6px;
+            border-left:1px solid #CCC;
+            border-right:1px solid #CCC;
+            border-top:1px solid #DDD;
+            border-bottom: 1px solid #666;
+            float:left;
+        }
+    </style>
+
+</head>
+<body>
+<h1 style="width:100%;text-align:right;border:1px solid #CCC">cloudconnect Rails Demo</h1>
+
+<div class="tab"><%= link_to 'Accounts', '/accounts' %></div>
+<div class="tab"><%= link_to 'Contacts', '/contacts' %></div>
+<div style="clear:both"></div>
+
+<%= yield %>
+
+</body>
+</html>

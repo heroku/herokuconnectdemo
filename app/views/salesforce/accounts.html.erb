@@ -1,0 +1,17 @@
+<h1>Salesforce Accounts</h1>
+<table>
+    <tr>
+        <th>Name</th><th>Date</th><th>Salesforce Id</th>
+    </tr>
+    <% @accounts.each do |account| %>
+    <tr>
+        <td><%= account.name %></td>
+        <td><%= account.createddate.strftime("%d %b %y") %></td>
+        <td><%= account.sfid %></td>
+        <td><%= link_to "details", "/account/#{account.id}" %></td>
+    </tr>
+    <% end %>
+</table>
+
+<%= link_to 'prev', {:page => @page-1} %> |
+<%= link_to 'next', {:page => @page+1} %>
