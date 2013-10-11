@@ -34,4 +34,15 @@ Cloudconnectdemo::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.action_mailer.default_url_options = {:host => "localhost:3000"}
+  config.action_mailer.smtp_settings = {
+    address:              'email-smtp.us-east-1.amazonaws.com',
+    port:                 587,
+    domain:               'cloudconnect.com',
+    user_name:            'AKIAI23IM4PCXOQW5DJA',
+    password:             'App5fgsOCorJ9UhJI/rKl2aD4VD3a4+D6KnvOVO0tLEV',
+    authentication:       'plain',
+    enable_starttls_auto: true  
+  }
 end
