@@ -1,0 +1,16 @@
+<h1>Salesforce Contacts</h1>
+<table>
+    <tr>
+        <th>Name</th><th>Date</th><th>Salesforce Id</th>
+    </tr>
+    <% @contacts.each do |contact| %>
+    <tr>
+        <td><%= contact.firstname %> <%= contact.lastname %></td>
+        <td><%= contact.createddate.strftime("%d %b %y") %></td>
+        <td><%= contact.sfid %></td>
+    </tr>
+    <% end %>
+</table>
+
+<%= link_to 'prev', {:page => @page-1} %> |
+<%= link_to 'next', {:page => @page+1} %>
