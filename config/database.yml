@@ -15,9 +15,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: cloudconnectdemo_development
+  database: spersinger
   pool: 5
-  username: cloudconnectdemo
+  username: spersinger
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a

@@ -2,18 +2,21 @@ class SalesforceModel < ActiveRecord::Base
     self.abstract_class = true
     self.inheritance_column = 'rails_type'
 
-    if ENV['CLOUDCONNECT_URL'].nil?
-    	puts "WARNING: YOU SHOULD SET CLOUDCONNECT_URL IN YOUR ENVIRONMENT"
+    if ENV['HEROKUCONNECT_URL'].nil?
+    	puts "WARNING: YOU SHOULD SET HEROKUCONNECT_URL IN YOUR ENVIRONMENT"
+    end
+    if ENV['HEROKUCONNECT_SCHEMA'].nil?
+    	puts "WARNING: YOU SHOULD SET HEROKUCONNECT_SCHEMA IN YOUR ENVIRONMENT"
     end
 
-    establish_connection ENV['CLOUDCONNECT_URL']
+    establish_connection ENV['HEROKUCONNECT_URL']
 	attr_protected :createddate, :systemmodstamp, :lastmodifieddate
 
-	def cc_errors
-		CloudconnectTriggerLog.where(:record_id => self.id, :state => 'FAILED').order("id DESC").all	
+	def hc_errors
+		HerokuconnectTriggerLog.where(:record_id => self.id, :state => 'FAILED').order("id DESC").all	
 	end	
 
-	def cc_last_error
+	def hc_last_error
 		errs = cc_errors()
 		if errs[0]
 			errs[0].sf_message
@@ -23,11 +26,11 @@ class SalesforceModel < ActiveRecord::Base
 	end
 end
 
-class CloudconnectTriggerLog < SalesforceModel
+class HerokuconnectTriggerLog < SalesforceModel
 	self.table_name = '_trigger_log'
 
 	def self.pending
-		CloudconnectTriggerLog.where(:state => 'NEW').count
+		HerokuconnectTriggerLog.where(:state => 'NEW').count
 	end
 
 end

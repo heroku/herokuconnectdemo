@@ -1,1 +1,2 @@
-ENV['CLOUDCONNECT_URL'] = 'postgres://vveyuqgafibygf:ZEJmD8AK-LhydRExqm0S4wKRJw@ec2-54-225-218-144.compute-1.amazonaws.com:5442/d8jltj3rrp5pln'
+ENV['CLOUDCONNECT_URL'] = 'postgresql://sync_c5master_1:a7002977e749@localhost/t1_scottpersingeratgmailcom'
+#postgres://vveyuqgafibygf:ZEJmD8AK-LhydRExqm0S4wKRJw@ec2-54-225-218-144.compute-1.amazonaws.com:5442/d8jltj3rrp5pln'

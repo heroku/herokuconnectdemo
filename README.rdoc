@@ -1,29 +1,30 @@
-== cloudconnect Rails Demo
+== Heroku Connect Rails Demo
 
-The cloudconnect system synchronizes records in your Salesforce account with
+The Heroku Connect system synchronizes records in your Salesforce account with
 a relational database. This simple Rails application demonstrates some techniques 
-for accessing Salesforce data from the cloudconnect database.
+for accessing Salesforce data from the Heroku Connect database.
 
 This application assumes that you have mapped your Account and Contact objects
 from Salesforce. This results in the "account" and "contact" tables being
-created in the cloudconnect database.
+created in the Heroku Connect database.
 
 This application implements ActiveRecord models classes to talk to those tables,
 and adds some simple views for browsing those records.
 
 == Getting Started
 
-1. Sign up for a cloudconnect account, or add the cloudconnect addon to your
+1. Sign up for a Heroku Connect account, or add the Heroku Connect addon to your
 Heroku app.
 
-2. Go through the cloudconnect setup process, and map your Account and Contact
+2. Go through the Heroku Connect setup process, and map your Account and Contact
 objects.
 
 3. If you want database changes to be synced to Salesforce, enable "Read/Write"
-mode on your cloudconnect account.
+mode on your Heroku Connect account.
 
-4. Get your cloudconnect database credentials. Set the CLOUDCONNECT_URL variable
-in your environment to the database url.
+4. Get your Heroku Connect database credentials and schema name. Set the 
+`HEROKUCONNECT_URL` and `HEROKUCONNNECT_SCHEMA` variables
+in your environment. If you are deploying to heroku, set those values as Config Vars.
 
 5. Run the rails console and use the Account or Contact activerecord models
 to access your data. Or run the Rails server and access http://localhost:3000
@@ -31,11 +32,7 @@ to access your data. Or run the Rails server and access http://localhost:3000
 == Accessing your Salesforce data
 
 This sample app provides a re-usable ActiveRecord base class called _SalesforceModel_.
-This abstract base class will connect to the database specified in the CLOUDCONNECT_URL
-environment variable. Any ActiveRecord models to access the cloudconnect database
+This abstract base class will connect to the database specified in the Heroku Connect_URL
+environment variable. Any ActiveRecord models to access the Heroku Connect database
 should inherit from this class.
 
-When you implement an ActiveRecord class to access a table, the main thing to remember
-is to use "self.table_name = '<table>'" to specify the right cloudconnect table. Note
-that cloudconnect tables are lower case versions of the Salesforce object name,
-and omit 
