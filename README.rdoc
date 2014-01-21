@@ -29,6 +29,13 @@ in your environment. If you are deploying to heroku, set those values as Config 
 5. Run the rails console and use the Account or Contact activerecord models
 to access your data. Or run the Rails server and access http://localhost:3000
 
+== Running the app
+
+Run the Rails server with `rails server` or deploy to Heroku.
+
+Access the home page, then click the _Sign Up_ link. Enter your email and password.
+Now you will be logged in and can access the *Accounts* and *Contacts* pages.
+
 == Accessing your Salesforce data
 
 This sample app provides a re-usable ActiveRecord base class called _SalesforceModel_.
